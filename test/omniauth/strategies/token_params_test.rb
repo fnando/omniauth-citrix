@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class TokenParamsTest < Minitest::Test
-  let(:app) { -> env {} }
+  let(:app) { ->(env) { } }
 
   let(:strategy) do
     OmniAuth::Strategies::Citrix.new(app, "consumer_id", "consumer_secret")

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class UidTest < Minitest::Test
-  let(:app) { -> env {} }
+  let(:app) { ->(env) { } }
 
   let(:strategy) do
     OmniAuth::Strategies::Citrix.new(app, "consumer_id", "consumer_secret")
@@ -9,8 +11,8 @@ class UidTest < Minitest::Test
 
   test "returns uuid" do
     access_token = mock("access_token", {params: {
-      "account_key" => "ACCOUNT_KEY"
-    }})
+                          "account_key" => "ACCOUNT_KEY"
+                        }})
 
     strategy.stubs(:access_token).returns(access_token)
 

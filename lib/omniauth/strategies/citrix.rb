@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "omniauth"
 require "omniauth-oauth2"
 
@@ -39,9 +41,7 @@ module OmniAuth
         }
       end
 
-      protected
-
-      def build_access_token
+      protected def build_access_token
         client.auth_code.get_token(
           request.params["code"],
           {"redirect_uri" => callback_url}.merge(token_params),
